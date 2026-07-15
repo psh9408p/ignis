@@ -198,17 +198,20 @@
     var packOptions = options.filter(function (option) {
       return option.packName === packName;
     });
+    var configMaximum = Number(arguments.length > 3 ? arguments[3] : packOptions.length);
+    if (!Number.isFinite(configMaximum) || configMaximum < 0) configMaximum = packOptions.length;
     var selected = packOptions.filter(function (option) {
       return selectedCodes.has(option.code);
     }).length;
     var available = packOptions.filter(function (option) {
       return !selectedCodes.has(option.code) && !option.disabled;
     }).length;
+    var maximum = Math.min(configMaximum, packOptions.length);
 
     return {
       selected: selected,
-      maximum: packOptions.length,
-      remaining: available,
+      maximum: maximum,
+      remaining: Math.min(Math.max(0, maximum - selected), available),
     };
   }
 
@@ -274,9 +277,11 @@
 
     return {
       packName: packName,
-      priceText: pricing.priceText || '',
-      discountText: pricing.discountText || '',
-      unitPriceText: pricing.unitPriceText || '',
+      displayName: configItem.displayName || packName,
+      maxSelectable: configItem.maxSelectable,
+      priceText: configItem.priceText || pricing.priceText || '',
+      discountText: configItem.discountText || pricing.discountText || '',
+      unitPriceText: configItem.unitPriceText || pricing.unitPriceText || '',
       description: configItem.description || '',
       badge: configItem.badge || '',
       recommended: Boolean(configItem.recommended),
@@ -356,7 +361,7 @@
           item.recommended ? ' is-recommended' : '',
           '" data-pack="', escapeHtml(item.packName), '" aria-pressed="false">',
           '<span class="cafe24-picker-radio" aria-hidden="true"></span>',
-          '<strong class="cafe24-picker-name">', escapeHtml(item.packName), '</strong>',
+          '<strong class="cafe24-picker-name">', escapeHtml(item.displayName), '</strong>',
           '<span class="cafe24-picker-meta">',
           '<span class="cafe24-picker-price-line">',
           item.priceText ? '<span class="cafe24-picker-price">' + escapeHtml(item.priceText) + '</span>' : '',
@@ -396,7 +401,8 @@
     });
 
     Array.prototype.forEach.call(mount.querySelectorAll('.cafe24-picker-row'), function (card) {
-      var state = getPackState(card.dataset.pack, options, selectedCodes);
+      var configItem = getConfigByPack(window.CAFE24_PICKER_CONFIG || [])[card.dataset.pack] || {};
+      var state = getPackState(card.dataset.pack, options, selectedCodes, configItem.maxSelectable);
       var isSelected = state.selected > 0;
       var isDisabled = state.maximum === 0 || state.remaining === 0;
       var countNode = card.querySelector('.cafe24-picker-count');

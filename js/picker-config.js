@@ -1,6 +1,8 @@
 window.CAFE24_PICKER_CONFIG = [
   {
     packName: '10개입',
+    displayName: '10개입',
+    maxSelectable: 1,
     badge: '가볍게 시작',
     description: '소량으로 먼저 골라보세요.',
     priceText: '24,700원',
@@ -10,6 +12,8 @@ window.CAFE24_PICKER_CONFIG = [
   },
   {
     packName: '30개입',
+    displayName: '30개입',
+    maxSelectable: 2,
     badge: '인기',
     description: '가장 많이 선택하는 구성입니다.',
     priceText: '70,500원',
@@ -19,6 +23,8 @@ window.CAFE24_PICKER_CONFIG = [
   },
   {
     packName: '50개입',
+    displayName: '50개입',
+    maxSelectable: 1,
     badge: '든든',
     description: '여유 있게 준비하기 좋은 구성입니다.',
     priceText: '111,500원',
@@ -28,6 +34,8 @@ window.CAFE24_PICKER_CONFIG = [
   },
   {
     packName: '100개입',
+    displayName: '100개입',
+    maxSelectable: 1,
     badge: '최대할인',
     description: '가장 높은 할인율의 대용량 구성입니다.',
     priceText: '196,000원',
