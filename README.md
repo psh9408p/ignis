@@ -9,11 +9,11 @@ Cafe24 상품 상세페이지의 기본 옵션 선택 영역을 골라담기 형
 
 ## 시연 영상
 
-- PC 화면 시연: [ignis-pc-demo.mp4](./evidence/ignis-pc-demo.mp4)
+- 시연영상 파일 열기: <a href="https://raw.githubusercontent.com/psh9408p/ignis/main/evidence/ignis-pc-demo.mp4" download="ignis-pc-demo.mp4">ignis-pc-demo.mp4 다운로드</a>
 
 <video controls width="100%">
   <source src="https://raw.githubusercontent.com/psh9408p/ignis/main/evidence/ignis-pc-demo.mp4" type="video/mp4">
-  브라우저에서 영상을 바로 재생할 수 없는 경우 위의 PC 화면 시연 링크를 클릭해 주세요.
+  브라우저에서 영상을 바로 재생할 수 없는 경우 위의 시연영상 파일 열기 링크를 클릭해 주세요.
 </video>
 
 ## 주요 파일
