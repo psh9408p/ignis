@@ -1,0 +1,387 @@
+#cafe24-option-picker {
+  margin: 22px 0 18px;
+  color: #171717;
+  font-family: inherit;
+}
+
+.cafe24-picker-panel {
+  overflow: hidden;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.cafe24-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 4px;
+  background: #f4f4f4;
+  color: #525252;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cafe24-picker-header:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid #777;
+  border-bottom: 1px solid #777;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .18s ease;
+}
+
+.cafe24-picker-panel.is-collapsed .cafe24-picker-header:after {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+.cafe24-picker-panel.is-collapsed .cafe24-picker-list,
+.cafe24-picker-panel.is-collapsed .custom-option-list-scroll {
+  display: none;
+}
+
+.cafe24-picker-list {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ededed;
+  border-top: 0;
+  list-style: none;
+}
+
+.cafe24-picker-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  border-bottom: 1px solid #ededed;
+  background: #fff;
+  color: #171717;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cafe24-picker-row:last-child {
+  border-bottom: 0;
+}
+
+.cafe24-picker-row:hover,
+.cafe24-picker-row:focus-visible {
+  background: #fff8f5;
+  outline: none;
+}
+
+.cafe24-picker-row.is-selected {
+  background: #FFF1EB;
+}
+
+.cafe24-picker-row.is-disabled {
+  background: #f7f7f7;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.cafe24-picker-radio {
+  position: relative;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+  border: 1px solid #d4d4d4;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.cafe24-picker-row.is-selected .cafe24-picker-radio {
+  border-color: #ff692e;
+}
+
+.cafe24-picker-row.is-selected .cafe24-picker-radio:after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff692e;
+}
+
+.cafe24-picker-name {
+  flex: 0 0 92px;
+  min-width: 74px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cafe24-picker-meta {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.cafe24-picker-price-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.cafe24-picker-price {
+  font-weight: 700;
+}
+
+.cafe24-picker-discount,
+.cafe24-picker-unit {
+  color: #777;
+  font-size: 12px;
+}
+
+.cafe24-picker-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  margin-left: 4px;
+  padding: 2px 5px;
+  border-radius: 2px;
+  background: #ffe7e2;
+  color: #ff3b1f;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.cafe24-picker-description {
+  display: block;
+  margin-top: 2px;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.cafe24-picker-count {
+  display: block;
+  margin-top: 2px;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.cafe24-picker-row.is-selected .cafe24-picker-count {
+  color: #ff692e;
+  font-weight: 700;
+}
+
+.cafe24-picker-message {
+  margin: 10px 0 0;
+  color: #d33;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.cafe24-picker-native-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+}
+
+.custom-option-list-scroll {
+  overflow-y: auto;
+  max-height: 448px;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.custom-option-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-option-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 98px;
+  align-items: center;
+  min-height: 82px;
+  padding: 12px 12px 12px 14px;
+  border-bottom: 1px solid #ededed;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.custom-option-item:last-child {
+  border-bottom: 0;
+}
+
+.custom-option-item.is-selected {
+  background: #FFF1EB;
+}
+
+.custom-option-product {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+}
+
+.custom-option-product.no-image {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.custom-option-img {
+  overflow: hidden;
+  width: 52px;
+  height: 52px;
+  border-radius: 4px;
+  background: #f5f5f5;
+}
+
+.custom-option-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-option-info {
+  min-width: 0;
+}
+
+.custom-option-name,
+.custom-option-summary {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-option-name {
+  overflow: hidden;
+  color: #171717;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-option-summary {
+  overflow: hidden;
+  margin-top: 3px;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.custom-option-qty {
+  display: grid;
+  grid-template-columns: 30px 34px 30px;
+  justify-self: end;
+  width: 94px;
+  height: 32px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.custom-qty-minus,
+.custom-qty-plus,
+.custom-qty-input {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #171717;
+  font: inherit;
+  line-height: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.custom-qty-minus,
+.custom-qty-plus {
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.custom-qty-input {
+  -moz-appearance: textfield;
+  color: #171717;
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.custom-qty-input::-webkit-outer-spin-button,
+.custom-qty-input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+@media screen and (max-width: 640px) {
+  #cafe24-option-picker {
+    margin: 18px 0 14px;
+  }
+
+  .cafe24-picker-row {
+    min-height: 62px;
+    padding: 12px 10px;
+  }
+
+  .cafe24-picker-radio {
+    margin-right: 10px;
+  }
+
+  .cafe24-picker-name {
+    flex-basis: 78px;
+    min-width: 68px;
+  }
+
+  .custom-option-list-scroll {
+    max-height: 390px;
+  }
+
+  .custom-option-item {
+    grid-template-columns: minmax(0, 1fr) 94px;
+    min-height: 78px;
+    padding: 10px;
+  }
+
+  .custom-option-product {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .custom-option-product.no-image {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .custom-option-img {
+    width: 46px;
+    height: 46px;
+  }
+}
