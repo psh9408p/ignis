@@ -110,12 +110,13 @@
 .cafe24-picker-row.is-selected .cafe24-picker-radio:after {
   content: "";
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 50%;
+  left: 50%;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: #ff692e;
+  transform: translate(-50%, -50%);
 }
 
 .cafe24-picker-name {
