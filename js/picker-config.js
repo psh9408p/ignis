@@ -7,7 +7,6 @@ window.CAFE24_PICKER_CONFIG = [
     description: '소량으로 먼저 골라보세요.',
     priceText: '24,700원',
     discountText: '25% 할인',
-    unitPriceText: '1개 2,470원',
     recommended: false,
   },
   {
@@ -18,7 +17,6 @@ window.CAFE24_PICKER_CONFIG = [
     description: '가장 많이 선택하는 구성입니다.',
     priceText: '70,500원',
     discountText: '29% 할인',
-    unitPriceText: '1개 2,350원',
     recommended: true,
   },
   {
@@ -29,7 +27,6 @@ window.CAFE24_PICKER_CONFIG = [
     description: '여유 있게 준비하기 좋은 구성입니다.',
     priceText: '111,500원',
     discountText: '32% 할인',
-    unitPriceText: '1개 2,230원',
     recommended: false,
   },
   {
@@ -40,7 +37,6 @@ window.CAFE24_PICKER_CONFIG = [
     description: '가장 높은 할인율의 대용량 구성입니다.',
     priceText: '196,000원',
     discountText: '41% 할인',
-    unitPriceText: '1개 1,960원',
     recommended: false,
   },
 ];

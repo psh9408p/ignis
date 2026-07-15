@@ -72,13 +72,11 @@
     var packMatch = text.match(/(\d+\s*개입)/);
     var priceMatch = text.match(/(\d[\d,]*\s*원)/);
     var discountMatch = text.match(/(\d+\s*%\s*할인)/);
-    var unitMatch = text.match(/(1\s*개\s*[:：]\s*\d[\d,]*\s*원|개당\s*\d[\d,]*\s*원)/);
 
     return {
       packName: packMatch ? normalizeText(packMatch[1]) : getPackName(text),
       priceText: priceMatch ? normalizeText(priceMatch[1]) : '',
       discountText: discountMatch ? normalizeText(discountMatch[1]) : '',
-      unitPriceText: unitMatch ? normalizeText(unitMatch[1]) : '',
     };
   }
 
@@ -274,14 +272,14 @@
       return option.packName === packName;
     });
     var pricing = nativeOption ? nativeOption.pricing : {};
+    var nativeTitle = nativeOption ? getPackName(nativeOption.title) : '';
 
     return {
       packName: packName,
-      displayName: configItem.displayName || packName,
+      displayName: nativeTitle || configItem.displayName || packName,
       maxSelectable: configItem.maxSelectable,
-      priceText: configItem.priceText || pricing.priceText || '',
-      discountText: configItem.discountText || pricing.discountText || '',
-      unitPriceText: configItem.unitPriceText || pricing.unitPriceText || '',
+      priceText: pricing.priceText || configItem.priceText || '',
+      discountText: pricing.discountText || configItem.discountText || '',
       description: configItem.description || '',
       badge: configItem.badge || '',
       recommended: Boolean(configItem.recommended),
@@ -368,7 +366,6 @@
           item.discountText ? '<span class="cafe24-picker-discount">(' + escapeHtml(item.discountText) + ')</span>' : '',
           item.recommended ? '<span class="cafe24-picker-badge">' + escapeHtml(item.badge) + '</span>' : '',
           '</span>',
-          item.unitPriceText ? '<span class="cafe24-picker-unit">' + escapeHtml(item.unitPriceText) + '</span>' : '',
           '<span class="cafe24-picker-description">', escapeHtml(item.description), '</span>',
           '<span class="cafe24-picker-count"></span>',
           '</span>',
